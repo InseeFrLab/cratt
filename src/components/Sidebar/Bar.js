@@ -122,13 +122,13 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <h1 className={`${open ? 'text-6xl' : 'text-xs'} text-red-500 italic text-center font-bold`}>CRaTT</h1>
         {open && (
-        <Image src="/toad.jpeg" alt="Logo" style={{ width: '100%', height: 'auto' }} /> // Ajoutez cette ligne
+        <Image src="/toad.jpeg" alt="Logo" width={240} height={240}  /> // Ajoutez cette ligne
       )}
         <Divider />
         <List>
           {["Cartes", "Description"].map((text, index) => (
             <Link href={links[index]}>
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
+            <ListItem disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
