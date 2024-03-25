@@ -6,25 +6,10 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MiniDrawer from "@/components/Sidebar/Bar";
 
 const Page = () => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
   return (
-    <div style={{ display: "flex" }}>
-      <MiniDrawer
-        open={drawerOpen}
-        onOpen={() => setDrawerOpen(true)}
-        onClose={() => setDrawerOpen(false)}
-      />
-      <div
-        style={{
-          flexGrow: 1,
-          paddingLeft: drawerOpen ? 240 : 0,
-          transition: "padding-left 0.3s ease",
-        }}
-      >
+  
         <Box m="20px">
           <Accordion
             defaultExpanded
@@ -82,8 +67,7 @@ const Page = () => {
           </Accordion>
 
         </Box>
-      </div>
-    </div>
+
   );
 };
 
