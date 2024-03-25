@@ -18,7 +18,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
  // Remplacez par le chemin de votre image
 import Link from 'next/link';
-
+import Image from "next/image";
 const drawerWidth = 240;
 
 const links = ["/", "/description"];
@@ -122,7 +122,7 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <h1 className={`${open ? 'text-6xl' : 'text-xs'} text-red-500 italic text-center font-bold`}>CRaTT</h1>
         {open && (
-        <img src="/toad.jpeg" alt="Logo" style={{ width: '100%', height: 'auto' }} /> // Ajoutez cette ligne
+        <Image src="/toad.jpeg" alt="Logo" style={{ width: '100%', height: 'auto' }} /> // Ajoutez cette ligne
       )}
         <Divider />
         <List>

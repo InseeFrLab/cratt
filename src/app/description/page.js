@@ -31,7 +31,7 @@ const Page = () => {
             sx={{ backgroundColor: "#011F26", color: "white" }}
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography variant="h5">Ajouter les détections d'algorithme</Typography>
+              <Typography variant="h5">Ajouter les détections algorithme</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
@@ -45,7 +45,7 @@ const Page = () => {
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Typography variant="h5">
-                Mettre Sentinel2 sur geoserver et intégrer sur l'app
+                Mettre Sentinel2 sur geoserver et intégrer sur app
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
