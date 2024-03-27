@@ -17,7 +17,7 @@ export default function DropdownList({ title, items, open }) {
   const handleClick = () => {
     setOpenScroll(!openScroll);
   };
-  const territories = ["martinique", "guyane", "guadeloupe"];
+  const territories = ["martinique", "guyane", "guadeloupe","mayotte"];
   return (
     <>
       <ListItem disablePadding sx={{ display: "block" }}>
