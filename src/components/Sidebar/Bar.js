@@ -15,12 +15,14 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
- // Remplacez par le chemin de votre image
-import Link from 'next/link';
+import GridOnIcon from '@mui/icons-material/GridOn';
+import DropdownList from "./DropdownList";
+// Remplacez par le chemin de votre image
+import Link from "next/link";
 import Image from "next/image";
 const drawerWidth = 240;
 
-const links = ["/", "/description"];
+const links = ["/kd/description","/kd/statistiques"];
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -94,7 +96,6 @@ export default function MiniDrawer() {
           },
         }} // Ajoutez ces lignes
       >
-        
         <DrawerHeader className="flex justify-end">
           {open ? (
             <IconButton
@@ -119,41 +120,58 @@ export default function MiniDrawer() {
             </IconButton>
           )}
         </DrawerHeader>
-        <h1 className={`${open ? 'text-6xl' : 'text-xs'} text-red-500 italic text-center font-bold`}>CRaTT</h1>
+        <h1
+          className={`${
+            open ? "text-6xl" : "text-xs"
+          } text-red-500 italic text-center font-bold`}
+        >
+          CRaTT
+        </h1>
         {open && (
-        <Image src="/toad.jpeg" alt="Logo" width={240} height={240}  /> // Ajoutez cette ligne
-      )}
+          <Image src="/toad.jpeg" alt="Logo" width={240} height={240} /> // Ajoutez cette ligne
+        )}
         <Divider />
+        
+         
+        
         <List>
-          {["Cartes", "Description"].map((text, index) => (
+        {["Description","Statistiques ilots"].map((text, index) => (
             <Link href={links[index]}>
-            <ListItem disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+              <ListItem disablePadding sx={{ display: "block" }}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                    color: "white"
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
+                    '&:hover': {
+                      backgroundColor: 'blue', // Change this to the color you want
+                    },
                   }}
                 >
-                  {index % 2 === 0 ? (
-                    <InboxIcon color="inherit" />
-                  ) : (
-                    <MailIcon color="inherit" />
-                  )}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                      color: "white",
+                    }}
+                  >
+                    {index % 2 === 0 ? (
+                      <InboxIcon color="inherit" />
+                    ) : (
+                      <GridOnIcon color="inherit" />
+                    )}
+                  </ListItemIcon>
+                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              </ListItem>
             </Link>
           ))}
+          <DropdownList
+            title="Cartes"
+            items={open ? ["Martinique", "Guyane", "Guadeloupe"] : ["972", "973","971"]} 
+            open={open}
+          />
         </List>
         <Divider />
       </Drawer>

@@ -1,20 +1,40 @@
-'use client'
-import React, { useState } from 'react';
-import dynamic from 'next/dynamic';
+// HomePage.js
+"use client"
+import React, { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
+import Link from 'next/link';
 
-const MyMap = dynamic(() => import('../components/Map/Map'), { ssr: false });
+const HomePage = () => {
+  const [bgImage, setBgImage] = useState('toad');
 
-const Page = () => {
- 
+  useEffect(() => {
+    const images = ['toad', 'toad2', 'toad3'];
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    setBgImage(randomImage);
+  }, []);
+
   return (
-   
-        <div className="flex flex-row">
-          <div className='flex items-center justify-center'>
-            <MyMap/>
-          </div>
-        </div>
-    
+    <div style={{
+        backgroundImage: `url(/${bgImage}.jpeg)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+      <Link href="/kd/cartes/martinique">
+        <Button variant="contained" 
+        sx = {{ 
+          '&:hover': { backgroundColor: 'blue' },
+          opacity: 1,
+          fontWeight: 'bold',
+          fontSize: '20px'
+        }}
+        >Paré au décollage</Button>
+      </Link>
+    </div>
   );
-}
+};
 
-export default Page;
+export default HomePage;
