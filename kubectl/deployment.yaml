@@ -17,6 +17,7 @@ spec:
       containers:
         - name: cratt
           image: cguillo/cratt:latest # dorowu/ubuntu-desktop-lxde-vnc
+          imagePullPolicy: Always
 
         
     
