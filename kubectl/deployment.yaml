@@ -18,6 +18,13 @@ spec:
         - name: cratt
           image: cguillo/cratt:latest # dorowu/ubuntu-desktop-lxde-vnc
           imagePullPolicy: Always
+          resources:
+            requests:  # Minimum resources required
+              cpu: "3"
+              memory: "10Gi"
+            limits:  # Maximum resources used
+              cpu: "4"
+              memory: "20Gi"
 
         
     
