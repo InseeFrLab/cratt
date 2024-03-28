@@ -24,7 +24,7 @@ const Map = ({departement}) => {
   } 
   console.log("dirag:"+ layersRaster + "_2022")
   return (
-    <MapContainer className="w-200 h-300" center={center} zoom={13} scrollWheelZoom={false}>
+    <MapContainer className="w-200 h-300" center={center} zoom={11} scrollWheelZoom={false}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
