@@ -55,7 +55,7 @@ const Map = ({ departement }) => {
 
       <LayersControl position="topleft">
      
-        {["2020", "2022","2023"].map((year) => (
+        {["2018","2020", "2022","2023"].map((year) => (
           <LayersControl.Overlay name={`PLEIADE ${year}`} key={year}>
             <WMSTileLayer
               url={url}
