@@ -14,7 +14,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import GridOnIcon from '@mui/icons-material/GridOn';
 import DropdownList from "./DropdownList";
 // Remplacez par le chemin de votre image
@@ -169,7 +168,7 @@ export default function MiniDrawer() {
           ))}
           <DropdownList
             title="Cartes"
-            items={open ? ["Martinique", "Guyane", "Guadeloupe","Mayotte"] : ["972", "973","971","976"]} 
+            items={open ? ["Guadeloupe","Martinique","Guyane","Reunion","Mayotte"] : ["971", "972","973","974","976"]} 
             open={open}
           />
         </List>

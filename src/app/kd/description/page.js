@@ -30,7 +30,7 @@ const Page = () => {
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Typography variant="h5">
-                Mettre Sentinel2 sur geoserver et intégrer sur app
+                Mettre Sentinel 2 sur geoserver et intégrer sur app
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -61,7 +61,7 @@ const Page = () => {
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-               Prédite sur Sentinel 2 et sur Plkeiades pour bucher les trous ?
+               Prédite sur Sentinel 2 et sur Pleiades pour boucher les trous ?
               </Typography>
             </AccordionDetails>
           </Accordion>
