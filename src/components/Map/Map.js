@@ -19,6 +19,7 @@ const Map = ({ departement }) => {
     layersIlot = "ilots_972";
     layersPred = "pred_MARTINIQUE";
     center = [14.734081775534577, -61.04652836019437];
+    
   } else if (departement === "guyane") {
     layersRaster = "GUYANE";
     layersIlot = "ilots_973";
@@ -87,6 +88,29 @@ const Map = ({ departement }) => {
             />
           </LayersControl.Overlay>
         ))}
+
+{departement === "mayotte" && (
+  <>
+    <LayersControl.Overlay name={`creation 2020-2023`}>
+      <WMSTileLayer
+        url={url}
+        layers={`${geoserverWorkspace}:creation_MAYOTTE_2020_2023`}
+        format="image/png"
+        transparent={true}
+        version="1.1.0"
+      />
+    </LayersControl.Overlay>
+    <LayersControl.Overlay name={`suppression 2020-2023`}>
+      <WMSTileLayer
+        url={url}
+        layers={`${geoserverWorkspace}:suppression_MAYOTTE_2020_2023`}
+        format="image/png"
+        transparent={true}
+        version="1.1.0"
+      />
+    </LayersControl.Overlay>
+  </>
+)}
       </LayersControl>
     </MapContainer>
   );
