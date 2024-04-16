@@ -124,7 +124,7 @@ export default function MiniDrawer() {
             open ? "text-6xl" : "text-xs"
           } text-red-500 italic text-center font-bold`}
         >
-          CRaTT
+          CRaTToGa   
         </h1>
         {open && (
           <Image src="/toad.jpeg" alt="Logo" width={240} height={240} /> // Ajoutez cette ligne
