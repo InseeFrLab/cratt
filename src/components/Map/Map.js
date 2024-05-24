@@ -34,6 +34,7 @@ const Map = ({ departement }) => {
     layersRaster = "MAYOTTE";
     layersIlot = "ilots_976";
     layersPred = "pred_MAYOTTE";
+    layersPred = "pred_clean_MAYOTTE"
     center = [-12.819734705957057, 45.15567959194368];
   } else if (departement === "reunion") {
     layersRaster = "REUNION";
@@ -108,6 +109,16 @@ const Map = ({ departement }) => {
         transparent={true}
         version="1.1.0"
       />
+    </LayersControl.Overlay>
+
+    <LayersControl.Overlay name={`prediction clean 2023`}>
+            <WMSTileLayer
+              url={url}
+              layers={`${geoserverWorkspace}:pred_clean_MAYOTTE_2023`}
+              format="image/png"
+              transparent={true}
+              version="1.1.0"
+            />
     </LayersControl.Overlay>
   </>
 )}
