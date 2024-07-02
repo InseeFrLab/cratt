@@ -168,7 +168,7 @@ export default function MiniDrawer() {
           ))}
           <DropdownList
             title="Cartes"
-            items={open ? ["Guadeloupe","Martinique","Guyane","Reunion","Mayotte"] : ["971", "972","973","974","976"]} 
+            items={open ? ["Guadeloupe","Martinique","Guyane","Reunion","Mayotte","Saint-Martin"] : ["971", "972","973","974","976","SXM"]} 
             open={open}
           />
         </List>

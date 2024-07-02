@@ -40,6 +40,10 @@ const Map = ({ departement }) => {
     layersIlot = "ilots_974";
     layersPred = "pred_REUNION";
     center = [-20.89016606364918, 55.45854339672983];
+  } else if (departement === "saint-martin") {
+    layersRaster = "SAINT-MARTIN";
+    layersPred = "pred_SAINT-MARTIN";
+    center = [18.07302432618991, -63.05528896277365]; 
   }
 
   return (
@@ -121,6 +125,32 @@ const Map = ({ departement }) => {
     </LayersControl.Overlay>
   </>
 )}
+
+
+{departement === "saint-martin" && (
+  <>
+    <LayersControl.Overlay name={`PLEIADE 2024`}>
+      <WMSTileLayer
+        url={url}
+        layers={`${geoserverWorkspace}:PLEIADE_SAINT-MARTIN_2024`}
+        format="image/png"
+        transparent={true}
+        version="1.1.0"
+      />
+    </LayersControl.Overlay>
+  
+    <LayersControl.Overlay name={`prediction 2024`} key ="sxm">
+            <WMSTileLayer
+              url={url}
+              layers={`${geoserverWorkspace}:pred_SAINT-MARTIN_2024`}
+              format="image/png"
+              transparent={true}
+              version="1.1.0"
+            />
+    </LayersControl.Overlay>
+  </>
+)}
+
     </LayersControl>
     </MapContainer>
   );
