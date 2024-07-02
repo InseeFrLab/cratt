@@ -11,7 +11,7 @@ import "leaflet/dist/leaflet.css";
 const Map = ({ departement }) => {
   let layersRaster, layersIlot, center, layersPred;
 
-  const url = "https://geoserver-de-fifou.kub.sspcloud.fr/geoserver/dirag/wms";
+  const url = "https://geoserver-satellite-images.lab.sspcloud.fr/geoserver/dirag/wms";
   const geoserverWorkspace = "dirag";
 
   if (departement === "martinique") {
@@ -19,7 +19,6 @@ const Map = ({ departement }) => {
     layersIlot = "ilots_972";
     layersPred = "pred_MARTINIQUE";
     center = [14.734081775534577, -61.04652836019437];
-    
   } else if (departement === "guyane") {
     layersRaster = "GUYANE";
     layersIlot = "ilots_973";
