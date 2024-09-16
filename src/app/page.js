@@ -1,10 +1,8 @@
 // HomePage.js
-"use client";
-import React, { useState, useEffect } from "react";
-import Button from "@mui/material/Button";
-import Link from "next/link";
-import Image from "next/image";
-import Box from "@mui/material/Box";
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { Box, Button } from '@mui/material';
+import Link from 'next/link';
 
 const HomePage = () => {
   const [bgImage, setBgImage] = useState("toad");
@@ -21,10 +19,8 @@ const HomePage = () => {
       <div className="absolute inset-0 z-0">
         <Image
           src={`/${bgImage}.jpeg`} // Remplacez avec votre chemin d'image
-          layout="fill"
-          objectPosition="center"
-          objectFit="cover"
-          // Cette propriété est similaire à background-position: center;
+          fill
+          style={{ objectFit: "cover", objectPosition: "center" }}
           quality={100}
           alt="Image de fond"
         />
