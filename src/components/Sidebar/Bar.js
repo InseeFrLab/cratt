@@ -134,38 +134,38 @@ export default function MiniDrawer() {
          
         
         <List>
-        {["Description","Statistiques ilots"].map((text, index) => (
-            <Link href={links[index]}>
-              <ListItem disablePadding sx={{ display: "block" }}>
-                <ListItemButton
+          {["Description", "Statistiques ilots"].map((text, index) => (
+          <Link href={links[index]} key={index}>
+            <ListItem disablePadding sx={{ display: "block" }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? "initial" : "center",
+                  px: 2.5,
+                  '&:hover': {
+                    backgroundColor: 'blue', // Change this to the color you want
+                  },
+                }}
+              >
+                <ListItemIcon
                   sx={{
-                    minHeight: 48,
-                    justifyContent: open ? "initial" : "center",
-                    px: 2.5,
-                    '&:hover': {
-                      backgroundColor: 'blue', // Change this to the color you want
-                    },
+                    minWidth: 0,
+                    mr: open ? 3 : "auto",
+                    justifyContent: "center",
+                    color: "white",
                   }}
                 >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : "auto",
-                      justifyContent: "center",
-                      color: "white",
-                    }}
-                  >
-                    {index % 2 === 0 ? (
-                      <InboxIcon color="inherit" />
-                    ) : (
-                      <GridOnIcon color="inherit" />
-                    )}
-                  </ListItemIcon>
-                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                </ListItemButton>
-              </ListItem>
-            </Link>
-          ))}
+                  {index % 2 === 0 ? (
+                    <InboxIcon color="inherit" />
+                  ) : (
+                    <GridOnIcon color="inherit" />
+                  )}
+                </ListItemIcon>
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        ))}
           <DropdownList
             title="Cartes"
             items={open ? ["Guadeloupe","Martinique","Guyane","Reunion","Mayotte","Saint-Martin"] : ["971", "972","973","974","976","SXM"]} 

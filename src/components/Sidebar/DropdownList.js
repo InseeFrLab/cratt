@@ -50,17 +50,18 @@ export default function DropdownList({ title, items, open }) {
         <Collapse in={openScroll} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
             {items.map((item, index) => (
-            <Link href={`/kd/cartes/${territories[index]}`} >
-               <ListItemButton
-             
-               sx={{ pl: open ? 4 : 2 ,
-                 justifyContent: open ? "center" : "flex-start",
+              <Link href={`/kd/cartes/${territories[index]}`} key={index}>
+                <ListItemButton
+                  sx={{
+                    pl: open ? 4 : 2,
+                    justifyContent: open ? "center" : "flex-start",
                     '&:hover': {
-                    backgroundColor: 'blue'} // Change this to the color you want
-                 }}
-             >
-                <ListItemText primary={item} />
-              </ListItemButton>
+                      backgroundColor: 'blue' // Change this to the color you want
+                    }
+                  }}
+                >
+                  <ListItemText primary={item} />
+                </ListItemButton>
               </Link>
             ))}
           </List>
