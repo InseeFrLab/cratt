@@ -11,31 +11,31 @@ import 'leaflet/dist/leaflet.css';
 const DEPARTEMENT_CONFIG = {
   guadeloupe: {
     name: 'GUADELOUPE',
-    center: [16.23829069647559, -61.45240105961956],
+    center: [16.24017721021727, -61.532192586122505],
     availableYears: ['2022'],
     extraLayers: [],
   },
   martinique: {
     name: 'MARTINIQUE',
-    center: [14.734081775534577, -61.04652836019437],
-    availableYears: ['2018', '2020', '2022', '2023'],
+    center: [14.617309427411936, -61.055614179640365],
+    availableYears: ['2022'],
     extraLayers: [],
   },
   guyane: {
     name: 'GUYANE',
-    center: [5.5468972695980705, -53.67560450109521],
+    center: [4.9370292615282905, -52.325762983835325],
     availableYears: ['2023'],
     extraLayers: [],
   },
   reunion: {
     name: 'REUNION',
-    center: [-20.89016606364918, 55.45854339672983],
+    center: [-20.88545500487541, 55.452336559309124],
     availableYears: ['2023'],
     extraLayers: [],
   },
   mayotte: {
     name: 'MAYOTTE',
-    center: [-12.819734705957057, 45.15567959194368],
+    center: [-12.78081553844026, 45.227656507434695],
     availableYears: ['2023'],
     extraLayers: [
       {
@@ -46,7 +46,7 @@ const DEPARTEMENT_CONFIG = {
   },
   "saint-martin": {
     name: 'SAINT-MARTIN',
-    center: [18.07302432618991, -63.05528896277365],
+    center: [18.069731661621365, -63.07923112942898],
     availableYears: ['2024'],
     extraLayers: [],
   },
@@ -65,53 +65,52 @@ const Map = ({ departement }) => {
   const url = 'https://geoserver-satellite-images.lab.sspcloud.fr/geoserver/dirag/wms';
   const geoserverWorkspace = 'dirag';
 
-  const getWMSTileLayer = (layer) => (
+  const getWMSTileLayer = (layer, opacity = 1) => (
     <WMSTileLayer
       url={url}
       layers={`${geoserverWorkspace}:${layer}`}
       format="image/png"
       transparent={true}
       version="1.1.0"
+      opacity={opacity}
     />
   );
 
   return (
-    <MapContainer
-      className="w-120 h-200"
-      center={center}
-      zoom={11}
-      scrollWheelZoom={false}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
+      <MapContainer
+        className="w-120 h-200"
+        center={center}
+        zoom={14}
+        scrollWheelZoom={false}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
 
-      <LayersControl position="topleft">
-        {(
+        <LayersControl position="topleft">
           <LayersControl.Overlay name="Ilots" key="ilots">
             {getWMSTileLayer(`${name}_ILOTS`)}
           </LayersControl.Overlay>
-        )}
 
-        {availableYears.map((year) => (
-          <React.Fragment key={year}>
-            <LayersControl.Overlay name={`PLEIADES ${year}`}>
-              {getWMSTileLayer(`${name}_${year}`)}
-            </LayersControl.Overlay>
-            <LayersControl.Overlay name={`Prediction ${year}`}>
-              {getWMSTileLayer(`${name}_PREDICTIONS_${year}`)}
-            </LayersControl.Overlay>
-          </React.Fragment>
-        ))}
+          {availableYears.map((year) => (
+            <React.Fragment key={year}>
+              <LayersControl.Overlay name={`PLEIADES ${year}`}>
+                {getWMSTileLayer(`${name}_${year}`)}
+              </LayersControl.Overlay>
+              <LayersControl.Overlay name={`Prediction ${year}`}>
+                {getWMSTileLayer(`${name}_PREDICTIONS_${year}`)}
+              </LayersControl.Overlay>
+            </React.Fragment>
+          ))}
 
-        {extraLayers.map(({ name, layer }) => (
-          <LayersControl.Overlay name={name} key={layer}>
-            {getWMSTileLayer(layer)}
-          </LayersControl.Overlay>
-        ))}
-      </LayersControl>
-    </MapContainer>
+          {extraLayers.map(({ name, layer }) => (
+            <LayersControl.Overlay name={name} key={layer}>
+              {getWMSTileLayer(layer)}
+            </LayersControl.Overlay>
+          ))}
+        </LayersControl>
+      </MapContainer>
   );
 };
 
